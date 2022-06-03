@@ -8,7 +8,7 @@ from inspect import Attribute
 from tkinter import *
 import tkinter
 from tkinter import messagebox
-from turtle import back, color, onclick
+from turtle import back, bgcolor, color, end_fill, onclick
 from unicodedata import digit
 from winreg import EnableReflectionKey
 import mysql
@@ -22,7 +22,7 @@ import smtplib
 import random
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+from tkinter import ttk
 
 
 
@@ -42,7 +42,6 @@ try:
             self.vcpf = self.label4_input.get()
             self.vsenha = self.input_label5.get()
             self.vgmail = self.input_label7.get()
-            self.especiais = ".-"
             for c in self.especiais:
                 self.vcpf = self.vcpf.replace(c,"")
             if self.vcpf != "" and self.vnome != "" and self.vsexoo != "" and self.vcodigo  != "" and self.vcpf  != "" and self.vsenha  != "" and self.vgmail != "" :
@@ -98,7 +97,7 @@ try:
             print("deletado")
         def config(self):
             self.janela.title("gerenciamento")
-            self.janela.configure(background="#473727")     
+            self.janela.configure(background="#59B9EB")     
             self.janela.geometry("600x200")
             self.janela.resizable(True, True)
             self.janela.maxsize(width="1920", height="1080" )
@@ -122,7 +121,7 @@ try:
             self.janela.destroy()
             self.nova_janela = Tk()
             self.nova_janela.title("Cadastrar item")
-            self.nova_janela.configure(background="#473727")
+            self.nova_janela.configure(background="#59B9EB")
             self.nova_janela.geometry("600x200") 
             self.nova_janela.resizable(True, True)
             self.nova_janela.maxsize(width="1920", height="1080")
@@ -147,8 +146,55 @@ try:
             self.label_quant.place(relx=0.4, rely=0.2, relheight=0.08, relwidth=0.1 )
             self.input_quant = Entry(self.nova_janela)
             self.input_quant.place(relx=0.4, rely=0.27, relheight=0.04, relwidth=0.2)
+            self.butao_deletar =  Button(self.frame3,text="deletar", command=self.deletarr_registro_do_treeviw)
+            self.butao_deletar.place(relx=0.42, rely=0.8, relheight=0.2, relwidth=0.1)
+            self.butao_atualizar= Button(self.frame3, text="atualizar", command=self.atualizar_registro_do_treeviw)
+            self.butao_atualizar.place(relx=0.3, rely=0.8, relheight=0.2, relwidth=0.1)
+            #criação do treeview
+            self.tv = ttk.Treeview(self.frame4, columns=('id_produto','nome','preço','quantidade'), show='headings')
+            self.tv.column("id_produto", minwidth=0, width=50)
+            self.tv.column("nome", minwidth=0, width=100)
+            self.tv.column("preço", minwidth=0, width=70)
+            self.tv.column("quantidade", minwidth=0, width=50)
+            self.tv.heading("id_produto", text="ID")
+            self.tv.heading("nome", text="NOME_PRODUTO")
+            self.tv.heading("preço", text="PREÇO_PRODUTO")
+            self.tv.heading("quantidade", text="QUANTIDADE")
+            self.tv.place(relx=0.05, rely=0.08,relwidth=0.9, relheight=0.9)
+
+            #inserindo os dados da tabela produto no treeview
+            sql = "select * from Produto"
+            con = mysql.connector.connect(host="localhost", user="root", password = "123456",database="banco")
+            cursor = con.cursor()
+            cursor.execute(sql)
+            produto = cursor.fetchall()
+            con.close()
+            cursor.close()
+            for c in produto:
+                self.tv.insert("", "end", values=c)
 
             self.nova_janela.mainloop()
+
+        def deletarr_registro_do_treeviw(self):
+            itemselecionado = self.tv.selection()
+            for c in itemselecionado:
+                col1,col2,col3,col4 = self.tv.item(c, "values")
+            print(col1,col2,col3,col4)
+            sql = f"Delete from Produto where id_produto = {col1}"
+            conexão.conexaoDb(sql)
+            self.tv.delete(itemselecionado)
+        def atualizar_registro_do_treeviw(self):
+            self.input_nome_produto.delete(0,END)
+            self.input_preço_produto.delete(0, END)
+            self.input_quant.delete(0,END)
+           
+            item_pra_atualizar = self.tv.selection()
+            for c in item_pra_atualizar:
+                col1, col2,col3,col4 = self.tv.item(c, "values")
+                self.input_nome_produto = col1
+                self.input_preço_produto = col2
+                self.input_quant = col3
+            
         def confirmar(self):
             self.vnome_produto = self.input_nome_produto.get()
             self.vquantidade = self.input_quant.get()
@@ -194,7 +240,22 @@ try:
                                             con.close()
                                             self.sql = f"Insert into compra (id_pessoa, produto_id) Values('{self.vcodigo[0][0]}','{id_produto[0][0]}')"
                                             conexão.conexaoDb(self.sql)
+                                            self.sql3 = "Select * from Produto"
+                                            con = mysql.connector.connect(host = "localhost", user = "root", password = "123456", database = "banco")
+                                            cursor = con.cursor()
+                                            cursor.execute(self.sql3)
+                                            dadoos = cursor.fetchall()
+                                            cursor.close()
+                                            con.close()
+                                            self.tv.delete(*self.tv.get_children())
+                                            for c in dadoos:
+                                                self.tv.insert("","end", values=c)
+                                            self.input_nome_produto.delete(0, END)
+                                            self.input_preço_produto.delete(0, END)
+                                            self.input_quant.delete(0,END)
                                             messagebox.showinfo(title="aviso", message="cadastro de produto realizado com sucesso")
+                                            
+                                            
 
         def logarr(self):
             
@@ -250,59 +311,74 @@ try:
             self.botao_conta = Button(self.tela_logar, text="Logar",font=("Times New Roman", 12), command=self.logarr)
             self.botao_conta.place(relx=0.7, rely=0.8, relheight=0.08, relwidth=0.08)
             
+        def hover(self,botaum, color1,color2,color3):
+            botaum.configure(bg=color1)
+            def fora(e):
+                botaum.configure(bg=color1)
+            def dentro(e):
+                botaum.configure(bg=color2)
+            def pressionando(e):
+                botaum.configure(activebackground=color3)
+            botaum.bind("<Enter>", dentro)
+            botaum.bind("<Leave>", fora)
+            botaum.bind("<ButtonPress-1>", pressionando)
             
 
         def frames(self):
-            self.frame1 = Frame(self.janela, bd=4, highlightbackground="gray", highlightthickness=2)
+            self.frame1 = Frame(self.janela, bd=4, highlightbackground="#59B9EB", highlightthickness=2, background="#3B7EA1" )
             self.frame1.place(relx=0.02, rely=0.05, relwidth=0.96, relheight=0.9)
         def widgets(self):
-            self.botao_inserir = Button(self.janela, text="Inserir", command=self.inserir, font=("Times New Roman", 12))
-            self.botao_inserir.place(relx=0.50, rely=0.8, relwidth=0.08, relheight=0.08)
-            self.botao_limpar = Button(self.janela, text="limpar", command=self.limpar, font=("Times New Roman", 12))
-            self.botao_limpar.place(relx=0.39, rely=0.8, relwidth=0.08, relheight=0.08)
-            
-            self.label1 = Label(self.janela, text="Nome",font=("Times New Roman", 12, ))
+            self.botao_inserir = Button(self.janela, text="CONFIRMAR", command=self.inserir, font=("Verdana", 8, "bold"))
+            self.botao_inserir.place(relx=0.50, rely=0.8, relwidth=0.14, relheight=0.08)
+            self.botao_limpar = Button(self.janela, text="CANCELAR", command=self.limpar, bd=2, font=("verdana", 8 , "bold"))
+            self.botao_limpar.place(relx=0.36, rely=0.8, relwidth=0.13, relheight=0.08)
+            self.hover(self.botao_inserir,"#5FDEC5", "#3E9483", "#3FAB77")
+            self.hover(self.botao_limpar,"#5FDEC5", "#3E9483", "#3FAB77")
+            self.label1 = Label(self.janela, text="Nome",font=("verdana", 12,"bold" ), background="#3B7EA1")
             self.label1.place(relx= 0.2, rely=0.20, relheight=0.1, relwidth=0.08)
             self.input_label1 = Entry(self.janela)
-            self.input_label1.place(relx=0.2, rely=0.30, relheight=0.04, relwidth=0.6)
+            self.input_label1.place(relx=0.2, rely=0.30, relheight=0.05, relwidth=0.6)
 
 
-            self.label3 = Label(self.janela, text="Código",font=("Times New Roman", 12))
-            self.label3.place(relx= 0.065, rely=0.70, relheight=0.1, relwidth=0.08)
+            self.label3 = Label(self.janela, text="Código",font=("verdana", 10, "bold"),background="#3B7EA1")
+            self.label3.place(relx= 0.067, rely=0.72, relheight=0.08, relwidth=0.08)
             self.input_label3 = Entry(self.janela)
             self.input_label3.place(relx=0.077, rely=0.8, relheight=0.06, relwidth=0.06)
             
-            self.label4 = Label(self.janela, text="Cpf",font=("Arial", 12))
-            self.label4.place(relx= 0.2, rely=0.36, relheight=0.1, relwidth=0.08)
+            self.label4 = Label(self.janela, text="CPF",font=("verdana", 12, "bold"), background="#3B7EA1")
+            self.label4.place(relx= 0.2, rely=0.36, relheight=0.1, relwidth=0.09)
             self.label4_input = Entry(self.janela)
-            self.label4_input.place(relx=0.2, rely=0.45, relheight=0.04, relwidth=0.2)
+            self.label4_input.place(relx=0.2, rely=0.45, relheight=0.05, relwidth=0.2)
 
 
-            self.botao_next = Button(self.janela, text="Next", font=("Times New Roman", 12,),command=self.abrir_janela)
-            self.botao_next.place(relx=0.8, rely=0.8, relheight=0.08, relwidth=0.08)
-
-            self.label5 = Label(self.janela, text="Senha",font=("Times New Roman", 12))
-            self.label5.place(relx=0.5, rely=0.36,relheight=0.1, relwidth=0.08)
+            self.botao_next = Button(self.janela, text="Next", font=("Verdana", 12,"bold"),command=self.abrir_janela)
+            self.botao_next.place(relx=0.84, rely=0.8, relheight=0.08, relwidth=0.13)
+            self.hover(self.botao_next,"#5FDEC5", "#3E9483", "#3FAB77")
+            self.label5 = Label(self.janela, text="Senha",font=("Verdana", 12,"bold"),background="#3B7EA1")
+            self.label5.place(relx=0.5, rely=0.36,relheight=0.1, relwidth=0.09)
             self.input_label5 = Entry(self.janela, show="*")
-            self.input_label5.place(relx=0.5, rely=0.45, relheight=0.04, relwidth=0.3)
+            self.input_label5.place(relx=0.5, rely=0.45, relheight=0.05, relwidth=0.3)
 
-            self.botao_conta = Button(self.janela, text="Login",font=("Times New Roman", 12), command=self.tela_login)
-            self.botao_conta.place(relx=0.7, rely=0.8, relheight=0.08, relwidth=0.08)
+            self.botao_conta = Button(self.janela, text="Login",font=("verdana", 11,"bold"), command=self.tela_login)
+            self.botao_conta.place(relx=0.70, rely=0.8, relwidth=0.13, relheight=0.08)
+            self.hover(self.botao_conta,"#5FDEC5", "#3E9483", "#3FAB77")
 
-            self.label6 = Label(self.janela, text="CADASTRO", font=("Verdana", 25, "bold"))
+            self.label6 = Label(self.janela, text="CADASTRO", font=("Verdana", 25, "bold"), background="#3B7EA1")
             self.label6.place(relx=0.25, rely=0.1, relheight=0.06, relwidth=0.5)
             
             self.vsexo = StringVar()
-            self.masculino = Radiobutton(self.janela, text="Masculino", value="M",  variable=self.vsexo)
+            self.masculino = Radiobutton(self.janela, text="Masculino", value="M",  variable=self.vsexo, font=("verdana",10,"bold"))
             self.masculino.place(relx=0.46, rely=0.70, relheight=0.06, relwidth=0.2)
 
-            self.feminino = Radiobutton(self.janela, text="Feminino", value="F",  variable=self.vsexo)
-            self.feminino.place(relx=0.3, rely=0.70, relheight=0.06, relwidth=0.2)
+            self.feminino = Radiobutton(self.janela, text="Feminino", value="F",  variable=self.vsexo, font=("verdana",10,"bold") )
+            self.hover(self.masculino,"#3B7EA1", "#3B7EA1", "#3B7EA1")
+            self.hover(self.feminino,"#3B7EA1", "#3B7EA1", "#3B7EA1")
+            self.feminino.place(relx=0.3, rely=0.70, relheight=0.06, relwidth=0.16)
             
-            self.label7= Label(self.janela, text="Gmail",font=("Times New Roman", 12, ))
+            self.label7= Label(self.janela,background ="#3B7EA1", text="Gmail",font=("vegana",12,"bold"))
             self.label7.place(relx= 0.2, rely=0.54, relheight=0.05, relwidth=0.08)
             self.input_label7 = Entry(self.janela)
-            self.input_label7.place(relx=0.2, rely=0.60, relheight=0.04, relwidth=0.6)
+            self.input_label7.place(relx=0.2, rely=0.60, relheight=0.05, relwidth=0.6)
 
 
 
