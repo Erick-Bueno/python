@@ -8,13 +8,25 @@ from pandas import DatetimeTZDtype
 import icons
 import mysql.connector
 import re
+import webbrowser
+
+def acessar_email():
+    new=2
+    url="https://www.gmail.com/"
+
+    webbrowser.open(url,new=new)
+
 def logar():
+
     projetoo.frame_2.close()
     
     
 def voltar_logar():
     projetoo.frame_2.show()
 def registrar():
+    
+
+    
     global codigo
     global masculino
     global nome
@@ -150,6 +162,7 @@ projetoo.pushButton.clicked.connect(registrar)
 projetoo.pushButton_2.clicked.connect(logar)
 projetoo.pushButton_5.clicked.connect(voltar_logar)
 projetoo.pushButton_3.clicked.connect(Login)
+projetoo.pushButton_6.clicked.connect(acessar_email)
 
 
 projetoo.show()
