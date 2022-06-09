@@ -141,7 +141,8 @@ def Login():
             produto.show()
 
 
-
+def esqueceu_senha():
+    
 
 def limpar():
     projetoo.lineEdit.clear()     
