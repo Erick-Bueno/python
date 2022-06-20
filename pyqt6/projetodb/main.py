@@ -1,6 +1,10 @@
 import cProfile
+from dis import show_code
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from multiprocessing.reduction import send_handle
 from pickle import FALSE
+import smtplib
 from PyQt5 import uic,QtWidgets
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import QMessageBox
@@ -9,6 +13,8 @@ import icons
 import mysql.connector
 import re
 import webbrowser
+import random
+import enviaremail
 
 def acessar_email():
     new=2
@@ -64,7 +70,7 @@ def registrar():
                     else:
                         validador_senha = (re.findall(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\u0020-\u002f-\u003A-\u0040\-\u005B-\u0060-\u007B-\u007E]).{8}',senha))
                         if validador_senha == []:
-                            QMessageBox.warning(projetoo,"Aviso","senha invalida, verifique se a sua senha atende aos requisitos: ter 8 caracteres, contendo numero letra maiscula e caracter especial")
+                            QMessageBox.warning(projetoo,"Aviso","senha invalida, verifique se a sua senha atende aos requisitos: ter 8 caracteres, contendo numero, letra maiscula e caracter especial")
                         else:
                             if "gmail" not in email:
                                 QMessageBox.warning(projetoo, "AVISO", "INFORME UM GMAIL VALIDO")
@@ -141,7 +147,7 @@ def Login():
             produto.show()
 
 
-def esqueceu_senha():
+
     
 
 def limpar():
@@ -151,8 +157,60 @@ def limpar():
     projetoo.lineEdit_4.clear()
     projetoo.lineEdit_5.clear()
 
-  
-    
+def esqueceu_senha():
+    projetoo.frame_3.hide()
+    projetoo.frame_5.hide()
+    projetoo.frame_4.show()
+def voltar_logar2():
+    projetoo.frame_3.show()
+def resetar_senha():
+    global nome_loginn
+    nome_loginn = projetoo.lineEdit_8.text()
+    global senha_nova
+    senha_nova = projetoo.lineEdit_9.text()
+    sql = f"Select nome from Pessoas where nome = '{nome_loginn}'"
+    con = mysql.connector.connect(host = "localhost", user= "root", password = "123456", database= "banco")
+    cursor = con.cursor()
+    cursor.execute(sql)
+    dados = cursor.fetchall()
+    cursor.close()
+    con.close()
+    if len(dados) == 0:
+        QMessageBox.warning(projetoo,"Aviso", "o nome não foi cadastrado")
+    else:
+        validar =  (re.findall(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\u0020-\u002f-\u003A-\u0040\-\u005B-\u0060-\u007B-\u007E]).{8}',senha_nova))
+        if validar == []:
+            QMessageBox.warning(projetoo,"Aviso","Senha Nova Invalida verifique se a sua senha atende aos requisitos: ter 8 caracteres, contendo numero, letra maiscula e caracter especial")
+        else:   
+                sql = f"Select gmail from Pessoas where nome = '{nome_loginn}'"
+                con = mysql.connector.connect(host = "localhost", user= "root", password = "123456", database= "banco")
+                cursor = con.cursor()
+                cursor.execute(sql)
+                dadoss = cursor.fetchall()
+                cursor.close()
+                con.close()
+                global codigo_reset
+                codigo_reset = str(random.randint(100, 999))
+                enviaremail.enviarr_email(dadoss, codigo_reset)
+                projetoo.lineEdit_8.clear()
+                projetoo.lineEdit_9.clear()
+                projetoo.frame_5.show()
+
+def codigo_email():
+   codigo_resetar = projetoo.lineEdit_10.text()
+   if codigo_resetar != codigo_reset:
+       QMessageBox.warning(projetoo,"aviso","codigo invalido")
+   else:
+        sql = f"update Pessoas set senha ='{senha_nova}' where nome = '{nome_loginn}'"
+        con = mysql.connector.connect(host = "localhost", user= "root", password = "123456", database= "banco")
+        cursor = con.cursor()
+        cursor.execute(sql)
+        con.commit()
+        con.close()
+        cursor.close()
+        QMessageBox.about(projetoo,"aviso","senha alterada com sucesso")
+        projetoo.lineEdit_10.clear()
+        projetoo.frame_3.show()
 
 app = QtWidgets.QApplication([])
 projetoo = uic.loadUi("projetoo.ui")
@@ -164,6 +222,10 @@ projetoo.pushButton_2.clicked.connect(logar)
 projetoo.pushButton_5.clicked.connect(voltar_logar)
 projetoo.pushButton_3.clicked.connect(Login)
 projetoo.pushButton_6.clicked.connect(acessar_email)
+projetoo.pushButton_4.clicked.connect(esqueceu_senha)
+projetoo.pushButton_8.clicked.connect(voltar_logar2)
+projetoo.pushButton_7.clicked.connect(resetar_senha)
+projetoo.pushButton_9.clicked.connect(codigo_email)
 
 
 projetoo.show()
