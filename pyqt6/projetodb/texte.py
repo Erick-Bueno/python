@@ -1,5 +1,10 @@
-import webbrowser
-new=2
-url="https://www.sapo.pt/"
+from PyQt5 import QtWidgets
+from PyQt5 import uic   
 
-webbrowser.open(url,new=new)
+
+
+app = QtWidgets.QApplication([])
+projetoo = uic.loadUi("untitled.ui")
+
+app.exec()
+projetoo.show()
