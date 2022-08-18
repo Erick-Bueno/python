@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>caixa-de-devolucao-de-livro.png</file>
+    <file>texto.png</file>
+    <file>codigo-de-barras.png</file>
+    <file>livro-de-capa-preta-fechado.png</file>
+    <file>porta-da-sala.png</file>
+    <file>rua.png</file>
+    <file>estrada.png</file>
+    <file>telefone.png</file>
+    <file>o-email.png</file>
+    <file>carteira-de-identidade.png</file>
+    <file>cep.png</file>
+    <file>cliente.png</file>
+    <file>sair.png</file>
+    <file>casa.png</file>
+    <file>pilha-de-tres-livros.png</file>
+    <file>biblioteca.png</file>
+    <file>perfil-de-usuario.png</file>
+  </qresource>
+</RCC>

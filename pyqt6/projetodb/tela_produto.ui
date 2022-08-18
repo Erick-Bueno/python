@@ -147,6 +147,9 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
      <property name="dateTime">
       <datetime>
        <hour>2</hour>
