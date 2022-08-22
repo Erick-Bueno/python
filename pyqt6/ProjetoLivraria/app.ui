@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>552</width>
-    <height>368</height>
+    <height>353</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -163,6 +163,9 @@ background-color: rgb(195, 117, 117);
        <height>23</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">QPushButton{
 background-color:#E68A8A;
@@ -203,7 +206,7 @@ background-color: rgb(195, 117, 117);
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>90</x>
        <y>100</y>
        <width>161</width>
        <height>31</height>
@@ -249,6 +252,9 @@ border-bottom-width:2px;
        <height>31</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
       <string notr="true">QPushButton{
 	background-color:#E68A8A;
@@ -272,7 +278,7 @@ QPushButton:pressed{
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>30</y>
        <width>341</width>
        <height>31</height>
@@ -296,7 +302,7 @@ QPushButton:pressed{
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>100</y>
        <width>21</width>
        <height>31</height>
@@ -336,7 +342,7 @@ border-bottom-width:2px;
     <widget class="QLineEdit" name="lineEdit_3">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>90</x>
        <y>140</y>
        <width>161</width>
        <height>31</height>
@@ -374,7 +380,7 @@ border-bottom-width:2px;</string>
     <widget class="QLineEdit" name="lineEdit_5">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>90</x>
        <y>180</y>
        <width>41</width>
        <height>31</height>
@@ -393,7 +399,7 @@ border-bottom-width:2px;</string>
     <widget class="QLineEdit" name="lineEdit_6">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>160</x>
        <y>180</y>
        <width>91</width>
        <height>31</height>
@@ -469,7 +475,7 @@ border-bottom-width:2px;</string>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>140</y>
        <width>21</width>
        <height>31</height>
@@ -488,7 +494,7 @@ border-bottom-width:2px;</string>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>180</y>
        <width>21</width>
        <height>31</height>
@@ -507,7 +513,7 @@ border-bottom-width:2px;</string>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>180</y>
        <width>21</width>
        <height>31</height>
@@ -523,13 +529,13 @@ border-bottom-width:2px;</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/porta-da-sala.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QFrame" name="frame_3">
+    <widget class="QFrame" name="frame_4">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>551</width>
-       <height>321</height>
+       <width>501</width>
+       <height>331</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -538,52 +544,34 @@ border-bottom-width:2px;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="label_9">
+     <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>50</y>
-        <width>371</width>
-        <height>31</height>
+        <x>190</x>
+        <y>10</y>
+        <width>151</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Arial Black</family>
         <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color:#E68A8A;</string>
       </property>
       <property name="text">
-       <string>CADASTRO DE LIVROS</string>
+       <string>Alocação</string>
       </property>
      </widget>
-     <widget class="QDateEdit" name="dateEdit">
+     <widget class="QLineEdit" name="lineEdit_10">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>190</y>
-        <width>121</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(16, 16, 16);</string>
-      </property>
-      <property name="calendarPopup">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_8">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>120</y>
-        <width>141</width>
+        <x>60</x>
+        <y>80</y>
+        <width>113</width>
         <height>31</height>
        </rect>
       </property>
@@ -591,121 +579,23 @@ border-bottom-width:2px;</string>
        <string notr="true">background-color: rgb(213, 213, 213);
 border-style:solid;
 border-color:black;
-border-bottom-width:2px;
-</string>
+border-bottom-width:2px;</string>
       </property>
       <property name="placeholderText">
        <string>Nome Do Livro</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_9">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>120</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 213, 213);
-border-style:solid;
-border-color:black;
-border-bottom-width:2px;
-</string>
-      </property>
-      <property name="placeholderText">
-       <string>Editora</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_11">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>180</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 213, 213);
-border-style:solid;
-border-color:black;
-border-bottom-width:2px;
-</string>
-      </property>
-      <property name="placeholderText">
-       <string>Codigo</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>120</y>
-        <width>21</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 213, 213);
-border-style:solid;
-border-color:black;
-border-bottom-width:2px;
-</string>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/livro-de-capa-preta-fechado.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>120</y>
-        <width>21</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 213, 213);
-border-style:solid;
-border-color:black;
-border-bottom-width:2px;
-</string>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/texto.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_12">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>180</y>
-        <width>21</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(213, 213, 213);
-border-style:solid;
-border-color:black;
-border-bottom-width:2px;
-</string>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/codigo-de-barras.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="pushButton_7">
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>280</y>
-        <width>121</width>
+        <y>80</y>
+        <width>101</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -724,96 +614,109 @@ QPushButton:pressed{
 }</string>
       </property>
       <property name="text">
-       <string>Cadastrar</string>
+       <string>Verificar estoque</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_13">
+     <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>180</y>
-        <width>31</width>
-        <height>16</height>
+        <x>40</x>
+        <y>80</y>
+        <width>21</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>Verdana</family>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Ano</string>
-      </property>
-     </widget>
-     <widget class="QFrame" name="frame_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>501</width>
-        <height>331</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>10</y>
-         <width>151</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Arial Black</family>
-         <pointsize>22</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#E68A8A;</string>
-       </property>
-       <property name="text">
-        <string>Alocação</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_10">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>80</y>
-         <width>113</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(213, 213, 213);
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(213, 213, 213);
 border-style:solid;
 border-color:black;
 border-bottom-width:2px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/livro-de-capa-preta-fechado.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>120</y>
+        <width>131</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Clientes</string>
        </property>
-       <property name="placeholderText">
-        <string>Nome Do Livro</string>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/newPrefix/perfil-de-usuario.png</normaloff>:/newPrefix/perfil-de-usuario.png</iconset>
        </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_7">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>80</y>
-         <width>101</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{
+      </column>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>280</y>
+        <width>110</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_12">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>280</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(213, 213, 213);
+border-style:solid;
+border-color:black;
+border-bottom-width:2px;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Codigo Do Livro</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>280</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(213, 213, 213);
+border-style:solid;
+border-color:black;
+border-bottom-width:2px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/codigo-de-barras.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>282</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
 	background-color:#E68A8A;
 	font: 8pt &quot;Verdana&quot;;
 	border-radius:5px;
@@ -827,65 +730,56 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(255, 152, 152);
 }</string>
-       </property>
-       <property name="text">
-        <string>Verificar estoque</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_15">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>80</y>
-         <width>21</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(213, 213, 213);
-border-style:solid;
-border-color:black;
-border-bottom-width:2px;</string>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/livro-de-capa-preta-fechado.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>120</y>
-         <width>131</width>
-         <height>201</height>
-        </rect>
-       </property>
-       <column>
-        <property name="text">
-         <string>Clientes</string>
-        </property>
-        <property name="icon">
-         <iconset resource="icones.qrc">
-          <normaloff>:/newPrefix/perfil-de-usuario.png</normaloff>:/newPrefix/perfil-de-usuario.png</iconset>
-        </property>
-       </column>
-      </widget>
-      <widget class="QDateEdit" name="dateEdit_2">
+      </property>
+      <property name="text">
+       <string>Alocar</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>551</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>280</y>
-         <width>110</width>
+         <y>30</y>
+         <width>171</width>
          <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial Black</family>
+         <pointsize>22</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#E68A8A;</string>
+       </property>
+       <property name="text">
+        <string>Devolução</string>
+       </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_12">
+      <widget class="QLineEdit" name="lineEdit_13">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>280</y>
-         <width>91</width>
+         <x>80</x>
+         <y>110</y>
+         <width>113</width>
          <height>31</height>
         </rect>
        </property>
@@ -899,11 +793,11 @@ border-bottom-width:2px;</string>
         <string>Codigo Do Livro</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_16">
+      <widget class="QLabel" name="label_18">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>280</y>
+         <x>60</x>
+         <y>110</y>
          <width>21</width>
          <height>31</height>
         </rect>
@@ -918,14 +812,17 @@ border-bottom-width:2px;</string>
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/codigo-de-barras.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_8">
+      <widget class="QPushButton" name="pushButton_10">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>282</y>
-         <width>71</width>
+         <x>200</x>
+         <y>110</y>
+         <width>75</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
@@ -944,14 +841,52 @@ QPushButton:pressed{
 }</string>
        </property>
        <property name="text">
-        <string>Alocar</string>
+        <string>Devolução</string>
        </property>
       </widget>
-      <widget class="QFrame" name="frame_5">
+      <widget class="QTextEdit" name="textEdit">
        <property name="geometry">
         <rect>
-         <x>-30</x>
-         <y>0</y>
+         <x>50</x>
+         <y>170</y>
+         <width>431</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>150</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Intercorrência</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>-10</y>
          <width>551</width>
          <height>331</height>
         </rect>
@@ -962,12 +897,12 @@ QPushButton:pressed{
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="label_17">
+       <widget class="QLabel" name="label_9">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>30</y>
-          <width>171</width>
+          <x>80</x>
+          <y>50</y>
+          <width>371</width>
           <height>31</height>
          </rect>
         </property>
@@ -983,15 +918,31 @@ QPushButton:pressed{
          <string notr="true">color:#E68A8A;</string>
         </property>
         <property name="text">
-         <string>Devolução</string>
+         <string>CADASTRO DE LIVROS</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_13">
+       <widget class="QDateEdit" name="dateEdit">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>110</y>
-          <width>113</width>
+          <x>300</x>
+          <y>190</y>
+          <width>121</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(16, 16, 16);</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_8">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>120</y>
+          <width>141</width>
           <height>31</height>
          </rect>
         </property>
@@ -999,17 +950,58 @@ QPushButton:pressed{
          <string notr="true">background-color: rgb(213, 213, 213);
 border-style:solid;
 border-color:black;
-border-bottom-width:2px;</string>
+border-bottom-width:2px;
+</string>
         </property>
         <property name="placeholderText">
-         <string>Codigo Do Livro</string>
+         <string>Nome Do Livro</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_18">
+       <widget class="QLineEdit" name="lineEdit_9">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>110</y>
+          <x>300</x>
+          <y>120</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(213, 213, 213);
+border-style:solid;
+border-color:black;
+border-bottom-width:2px;
+</string>
+        </property>
+        <property name="placeholderText">
+         <string>Editora</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_11">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>180</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(213, 213, 213);
+border-style:solid;
+border-color:black;
+border-bottom-width:2px;
+</string>
+        </property>
+        <property name="placeholderText">
+         <string>Codigo</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>120</y>
           <width>21</width>
           <height>31</height>
          </rect>
@@ -1018,20 +1010,64 @@ border-bottom-width:2px;</string>
          <string notr="true">background-color: rgb(213, 213, 213);
 border-style:solid;
 border-color:black;
-border-bottom-width:2px;</string>
+border-bottom-width:2px;
+</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/livro-de-capa-preta-fechado.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>120</y>
+          <width>21</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(213, 213, 213);
+border-style:solid;
+border-color:black;
+border-bottom-width:2px;
+</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/texto.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>180</y>
+          <width>21</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(213, 213, 213);
+border-style:solid;
+border-color:black;
+border-bottom-width:2px;
+</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/codigo-de-barras.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_10">
+       <widget class="QPushButton" name="pushButton_6">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>110</y>
-          <width>75</width>
+          <x>190</x>
+          <y>280</y>
+          <width>121</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
@@ -1050,45 +1086,27 @@ QPushButton:pressed{
 }</string>
         </property>
         <property name="text">
-         <string>Devolução</string>
+         <string>Cadastrar</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit">
+       <widget class="QLabel" name="label_13">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>170</y>
-          <width>431</width>
-          <height>151</height>
-         </rect>
-        </property>
-        <property name="html">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_19">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>150</y>
-          <width>111</width>
+          <x>300</x>
+          <y>180</y>
+          <width>31</width>
           <height>16</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Verdana</family>
-          <pointsize>10</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
         <property name="text">
-         <string>Intercorrência</string>
+         <string>Ano</string>
         </property>
        </widget>
       </widget>
@@ -1106,7 +1124,6 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="icones.qrc"/>

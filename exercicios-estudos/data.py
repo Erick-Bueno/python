@@ -11,5 +11,9 @@ dados = cursor.fetchall()
 con.close()
 cursor.close()
 for c in range(len(dados)):
-    print(data_atual>dados[c][0])
+    data = data_atual>dados[c][0]
+    if data == True:
+        print("atrasado")
+    else:
+        print("não atrasado")
 
