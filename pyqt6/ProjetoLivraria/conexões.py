@@ -24,7 +24,7 @@ class Conexao:
         self.con.close()
     def verificando(self):
        self.data_atual = date.today()
-       self.sql2 = "Select ano from livros"
+       self.sql2 = "select dataa from alocacao inner join clientes on clientes.id = alocacao.id_cliente inner join livros on livros.id = alocacao.id_livro;"
        self.con = mysql.connector.connect(host = "localhost", user = "root", password = "sirlei231", database = "biblioteca")
        self.cursor = self.con.cursor()
        self.cursor.execute(self.sql2)
@@ -34,16 +34,31 @@ class Conexao:
        for c in range(len(self.datas)):
         self.dataa = self.data_atual > self.datas[c][0]
         if self.dataa == True:
-            self.sql3 = f"Update livros set Alocado = 'NÃO ALOCADO' where ano = '{self.datas[c][0]}'"
+            self.sql3 = f"update alocacao set alocacao.ataraso = 'True' where alocacao.dataa = '{self.datas[c][0]}'"
             self.con = mysql.connector.connect(host = "localhost", user = "root", password = "sirlei231", database = "biblioteca")
             self.cursor = self.con.cursor()
             self.cursor.execute(self.sql3)
             self.con.commit()
             self.cursor.close()
             self.cursor.close()
-            print(f"{self.datas[c][0]} esta atrasado")
+            self.sql4 = f"select clientes.Nome from alocacao inner join clientes on clientes.id = alocacao.id_cliente inner join livros on livros.id = alocacao.id_livro where alocacao.dataa='{self.datas[c][0]}'"
+            self.con = mysql.connector.connect(host = "localhost", user = "root", password= "sirlei231", database = "biblioteca")
+            self.cursor = self.con.cursor()
+            self.cursor.execute(self.sql4)
+            self.user_name = self.cursor.fetchall()
+            self.con.close()
+            self.cursor.close()
+            
+            for i in range(len(self.user_name)):
+                self.sql5 = f"update clientes set Bloqueado = 'True' where Nome = '{self.user_name[i][0]}'"
+                self.con = mysql.connector.connect(host = "localhost", user = "root", password = "sirlei231", database = "biblioteca")
+                self.cursor = self.con.cursor()
+                self.cursor.execute(self.sql5)
+                self.con.commit()
+                self.cursor.close()
+                self.cursor.close()
         else: 
-            print("não ta atrasado")
+            print("tudo certo")
             
               
                 

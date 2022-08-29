@@ -641,10 +641,15 @@ border-bottom-width:2px;</string>
        <rect>
         <x>40</x>
         <y>120</y>
-        <width>131</width>
-        <height>201</height>
+        <width>211</width>
+        <height>151</height>
        </rect>
       </property>
+      <column>
+       <property name="text">
+        <string>Id</string>
+       </property>
+      </column>
       <column>
        <property name="text">
         <string>Clientes</string>
@@ -886,9 +891,9 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-10</y>
+         <y>0</y>
          <width>551</width>
-         <height>331</height>
+         <height>321</height>
         </rect>
        </property>
        <property name="frameShape">
