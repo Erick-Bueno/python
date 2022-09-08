@@ -1,4 +1,5 @@
 from socketserver import DatagramRequestHandler
+from threading import local
 import mysql.connector
 from http import server
 import smtplib
@@ -34,7 +35,7 @@ class Conexao:
        for c in range(len(self.datas)):
         self.dataa = self.data_atual > self.datas[c][0]
         if self.dataa == True:
-            self.sql3 = f"update alocacao set alocacao.ataraso = 'True' where alocacao.dataa = '{self.datas[c][0]}'"
+            self.sql3 = f"update alocacao set alocacao.atraso = 'True' where alocacao.dataa = '{self.datas[c][0]}'"
             self.con = mysql.connector.connect(host = "localhost", user = "root", password = "sirlei231", database = "biblioteca")
             self.cursor = self.con.cursor()
             self.cursor.execute(self.sql3)
@@ -59,6 +60,26 @@ class Conexao:
                 self.cursor.close()
         else: 
             print("tudo certo")
+    
+    def inserir_cliente(self, nome_cliente, cpf_validator, telefone, email, numero, rua,bairro):
+        self.nome_cliente = nome_cliente
+        self.cpf_validator = cpf_validator
+        self.telefone = telefone
+        self.email= email
+        self.numero = numero
+        self.rua = rua
+        self.bairro = bairro
+        self.sql7 = f"insert into clientes(Nome, Cpf, Telefone, Email, Numero, Rua, Bairro) values ('{self.nome_cliente}', '{self.cpf_validator}', '{self.telefone}','{self.email}','{self.numero}','{self.rua}', '{self.bairro}')"
+        self.con = mysql.connector.connect(user = "root", password = "sirlei231", database = "biblioteca", host = "localhost")
+        self.cursor = self.con.cursor()
+        self.cursor.execute(self.sql7)
+        self.con.commit()
+        self.con.close()
+        self.cursor.close()
+    
+   
+
+    
             
               
                 

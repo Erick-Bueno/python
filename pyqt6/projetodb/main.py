@@ -3,9 +3,11 @@ from dis import show_code
 from email import message
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from imp import load_source
 from msilib.schema import ComboBox
 from multiprocessing.reduction import send_handle
 from pickle import FALSE
+import profile
 import smtplib
 from PyQt5 import uic,QtWidgets
 from PyQt5 import QtGui
@@ -101,6 +103,18 @@ def registrar():
                                     for c in range(len(dados)):
                                         for i in range(0, 7):
                                             produto.tableWidget.setItem(c,i, QtWidgets.QTableWidgetItem(str(dados[c][i])))
+                                    sql9 = "select nome_produto,preço,quantidade,lucro,data_compra from financeiro"
+                                    con = mysql.connector.connect(host = "localhost", user= "root", password="sirlei231", database = "banco")
+                                    cursor = con.cursor()
+                                    cursor.execute(sql9)
+                                    financas = cursor.fetchall()
+                                    cursor.close()
+                                    con.close()
+                                    produto.tableWidget_2.setRowCount(len(financas))
+                                    produto.tableWidget_2.setColumnCount(5)
+                                    for c in range(len(financas)):
+                                        for i in range(0, 5):
+                                            produto.tableWidget_2.setItem(c,i,QtWidgets.QTableWidgetItem(str(financas[c][i])))
                                 if projetoo.radioButton_2.isChecked():
                                     sql2 = f"Insert Into Pessoas (id,nome,sexo,cpf,senha,gmail) values ('{codigo}','{nome}','F','{cpf}','{senha}','{email}')"
                                     con2 = mysql.connector.connect(host = "localhost", user="root",password="sirlei231", database="banco")
@@ -297,6 +311,30 @@ def adicionar():
             QMessageBox.about(produto, "aviso", "produto cadastrado com sucesso")
             produto.lineEdit.clear()
             produto.lineEdit_4.clear()
+            
+            #adicionar na tabela lucro
+            lucro = quantia * preço
+            con = mysql.connector.connect(host="localhost", user = "root", password = "sirlei231", database = "banco")
+            sql7 = f"insert into financeiro (nome_produto, quantidade, preço, lucro, data_compra) values ('{nome_produto}', '{quantia}', '{preço}', '{lucro}', '{data}')"
+            cursor = con.cursor()
+            cursor.execute(sql7)
+            con.commit()
+            con.close()
+            cursor.close()
+            #selecionar os dados da tabela financeiro
+            sql8 = "select nome_produto, quantidade, preço, lucro, data_compra from financeiro data_compra"
+            con = mysql.connector.connect(host = "localhost", password = "sirlei231", user = "root", database = "banco")
+            cursor = con.cursor()
+            cursor.execute(sql8)
+            financas = cursor.fetchall()
+            cursor.close()
+            con.close()
+            produto.tableWidget_2.setRowCount(len(financas))
+            produto.tableWidget_2.setColumnCount(5)
+            for c in range(len(financas)):
+                for i in range(0, 5):
+                    produto.tableWidget_2.setItem(c,i, QtWidgets.QTableWidgetItem(str(financas[c][i])))
+
 
             comandomysql = "Select * from Produto"
             con = mysql.connector.connect(host = "localhost", password = "sirlei231",database = "banco",user ="root")
@@ -365,7 +403,10 @@ def atualizar():
     for c in range(len(dados)):
         for i in range(0, 7): #colunas
             produto.tableWidget.setItem(c,i,QtWidgets.QTableWidgetItem(str(dados[c][i])))   
-
+def Vendas():
+        produto.frame_7.hide()
+def financeiro():
+    produto.frame_7.show()        
 
 app = QtWidgets.QApplication([])
 projetoo = uic.loadUi("projetoo.ui")
@@ -384,7 +425,10 @@ projetoo.pushButton_9.clicked.connect(codigo_email)
 produto.adicionarrr.clicked.connect(adicionar)
 produto.pushButton_2.clicked.connect(deletar)
 produto.pushButton_3.clicked.connect(atualizar)
+produto.pushButton_4.clicked.connect(Vendas)
+produto.pushButton.clicked.connect(financeiro)
 
 
 projetoo.show()
+
 app.exec()

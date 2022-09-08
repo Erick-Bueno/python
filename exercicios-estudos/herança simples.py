@@ -5,10 +5,11 @@ class Animal:
         self.especie = especie
 
 class cachorro(Animal):
-    def comunica(self):
-        print(self.nome,"late")
+    def __init__(self, idade, nome, especie, cor):
+        self.cor = cor
+        super().__init__(idade, nome, especie)
 
 
 
-animal1 = cachorro(4,"nina","cachorro")
-animal1.comunica()
+animal1 = cachorro(4,"nina","cachorro","preto")
+print(animal1.cor)

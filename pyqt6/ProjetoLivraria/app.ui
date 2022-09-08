@@ -637,19 +637,26 @@ border-bottom-width:2px;</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="tableWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>40</x>
         <y>120</y>
-        <width>211</width>
+        <width>201</width>
         <height>151</height>
        </rect>
       </property>
-      <column>
-       <property name="text">
-        <string>Id</string>
-       </property>
-      </column>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::SelectedClicked</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::ExtendedSelection</enum>
+      </property>
       <column>
        <property name="text">
         <string>Clientes</string>
@@ -657,6 +664,17 @@ border-bottom-width:2px;</string>
        <property name="icon">
         <iconset>
          <normaloff>:/newPrefix/perfil-de-usuario.png</normaloff>:/newPrefix/perfil-de-usuario.png</iconset>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string notr="true">CPF</string>
+       </property>
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
        </property>
       </column>
      </widget>

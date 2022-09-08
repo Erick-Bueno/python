@@ -408,31 +408,6 @@ QPushButton:Pressed{
       <string>Preço</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>200</y>
-       <width>75</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	border: none;
- }
-
-QPushButton:Hover{
-	
-	
-	
-	background-color: rgb(0, 176, 176);
-}</string>
-     </property>
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox_2">
      <property name="geometry">
       <rect>
@@ -484,69 +459,6 @@ QPushButton:Hover{
       <string>Unidade</string>
      </property>
     </widget>
-    <widget class="QFrame" name="frame_3">
-     <property name="geometry">
-      <rect>
-       <x>-20</x>
-       <y>200</y>
-       <width>731</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(170, 255, 255);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>0</y>
-        <width>75</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	border: none;
-}
-
-QPushButton:Hover{
-	background-color: rgb(0, 176, 176);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>0</y>
-        <width>75</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	border: none;
-}
-
-QPushButton:Hover{
-	background-color: rgb(0, 176, 176);
-}</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QFrame" name="frame_4">
      <property name="geometry">
       <rect>
@@ -567,9 +479,74 @@ border: 1px</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>170</y>
+        <width>75</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: rgb(16, 190, 138);
+font: 75 8pt &quot;Verdana&quot;;
+border-radius: 5px;
+color: white;
+
+
+}
+
+QPushButton:Hover{
+	
+	
+	background-color: rgb(29, 139, 121);
+}
+QPushButton:Pressed{
+	
+	background-color: rgb(195, 195, 195);
+}</string>
+      </property>
+      <property name="text">
+       <string>Financeiro</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>170</y>
+        <width>75</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: rgb(16, 190, 138);
+font: 75 8pt &quot;Verdana&quot;;
+border-radius: 5px;
+color: white;
+
+
+}
+
+QPushButton:Hover{
+	
+	
+	background-color: rgb(29, 139, 121);
+}
+QPushButton:Pressed{
+	
+	background-color: rgb(195, 195, 195);
+}</string>
+      </property>
+      <property name="text">
+       <string>Vendas</string>
+      </property>
+     </widget>
     </widget>
     <zorder>frame_4</zorder>
-    <zorder>frame_3</zorder>
     <zorder>lineEdit</zorder>
     <zorder>comboBox</zorder>
     <zorder>label</zorder>
@@ -583,7 +560,6 @@ border: 1px</string>
     <zorder>label_3</zorder>
     <zorder>doubleSpinBox</zorder>
     <zorder>label_4</zorder>
-    <zorder>pushButton_4</zorder>
     <zorder>comboBox_2</zorder>
     <zorder>label_5</zorder>
    </widget>
@@ -709,6 +685,87 @@ border: 1px</string>
       </property>
      </column>
     </widget>
+    <widget class="QFrame" name="frame_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-10</y>
+       <width>741</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(127, 190, 190);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>40</y>
+        <width>501</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <column>
+       <property name="text">
+        <string>Produto</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Quantidade</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Preço</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Lucro</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Data_Compra</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>10</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>FINANCEIRO</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_5">
     <property name="geometry">
@@ -732,9 +789,9 @@ border: 1px</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>290</y>
+       <y>310</y>
        <width>741</width>
-       <height>251</height>
+       <height>231</height>
       </rect>
      </property>
      <property name="styleSheet">

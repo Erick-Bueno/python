@@ -1,5 +1,4 @@
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-
-date = QDate.currentDate().toString("yyyy-dd-MM")
-print (date)
+import re
+cpf = "er1ick"
+cpf_validator = re.findall(r'^[a-zA-Z]{1,}$', cpf)
+print(cpf_validator)

@@ -5,8 +5,12 @@ import smtplib
 import random
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+from PyQt5 import uic
 
-def enviar_email():
+def enviar_email(tela):
+    QMessageBox.warning(tela, "aviso", "email sendo enviado")
     codigo = random.randint(100,999)
 
     comprador = "mowengine1228@gmail.com"
